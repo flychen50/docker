@@ -1,0 +1,23 @@
+#!/bin/bash
+cp /usr/lib64/libcurl.so.4 /usr/lib64/libcurl.so.3
+rpm -ivh http://10.210.208.36/rpms-ad/feed-test/ad_log4cpp-dev-4.0.9-1.x86_64.rpm
+rpm -ivh http://10.210.208.36/rpms-ad/feed-test/ad_log4cpp-4.0.9-1.x86_64.rpm --force
+rpm -ivh http://10.210.208.36/rpms-ad/boost-1_45-0.x86_64.rpm
+rpm -ivh http://10.210.208.36/rpms-ad/zeromq-2.1.9-2.x86_64.rpm
+rpm -ivh http://10.210.208.36/rpms-ad/ad_json-1.0.0-5.x86_64.rpm
+rpm -ivh http://10.210.208.36/rpms-ad/protobuf-1.0.0-4.x86_64.rpm
+rpm -ivh http://10.210.208.36/rpms-ad/spio_api_cpp-1.1.0-4.x86_64.rpm
+rpm -ivh http://10.210.208.36/rpms-ad/spio-1.1.0-2.x86_64.rpm
+rpm -ivh http://10.210.208.36/rpms-ad/libmcrypt-2.5.8-1.x86_64.rpm
+rpm -ivh http://10.210.208.36/rpms-ad/jsoncpp-1.0.1-2.x86_64.rpm
+rpm -ivh http://10.210.208.36/rpms-ad/feed-test/libevent-2.0.21-1.x86_64.rpm
+rpm -ivh http://10.210.208.36/rpms-ad/feed-test/MbCodeTools-1.0.0-1.x86_64.rpm
+rpm -ivh http://10.210.208.36/rpms-ad/cpm-test/bidfeed-sharelib-2.0.3-0.x86_64.rpm
+rpm -ivh http://10.210.208.36/rpms-ad/feed-test/monitor-client-1.0.1-0.x86_64.rpm
+rpm -Uvh http://10.210.208.36/rpms-ad/feed-test/vadecommon-4.4.5-0.x86_64.rpm
+rpm -ivh http://10.210.208.36/rpms-ad/feed-test/rubik-1.0.2-1.x86_64.rpm
+rpm -ivh http://10.210.208.36/rpms-ad/feed-test/rubik_goods_plugin-1.0.2-0.x86_64.rpm
+/sbin/ldconfig
+cp /data0/vad/rubik/conf/rubik.conf /data0/vad/rubik/conf/rubik.conf_bak
+/bin/sed -i "s/^query_map_so=promotefans:librubik_promotefans_plugin.so/query_map_so=goods:librubik_goods_plugin.so;/g" /data0/vad/rubik/conf/rubik.conf
+/bin/sed -i "s/^plugin_types=9:promotefans/plugin_types=10:goods;/g" /data0/vad/rubik/conf/rubik.conf

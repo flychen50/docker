@@ -1,0 +1,2 @@
+FROM r.biz.weibo.com:443/centos5
+MAINTAINER xinfeng@staff.weibo.com

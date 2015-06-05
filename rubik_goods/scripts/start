@@ -1,0 +1,6 @@
+#!/bin/bash
+rsync --daemon
+/home/w/share/spio/bin/spio -c /data0/vad/rubik/conf/rubik_ms.spio -g ms_ds_dim -s start
+/data0/vad/rubik/bin/rubik -c /data0/vad/rubik/conf/rubik.conf -s restart
+echo "start rubik_goods"
+/bin/bash

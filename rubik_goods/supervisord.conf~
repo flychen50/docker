@@ -1,0 +1,8 @@
+[supervisord]
+nodaemon=true
+[program:rsync]
+command=rsync --daemon
+[program:spio]
+command=/home/w/share/spio/bin/spio -c /data0/vad/rubik/conf/rubik_ms.spio -g ms_ds_dim -s start
+[program:rubik]
+command=/data0/vad/rubik/bin/rubik -c /data0/vad/rubik/conf/rubik.conf -s restart
